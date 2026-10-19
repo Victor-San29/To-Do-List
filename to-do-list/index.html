@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de tarefas</title>
+    <link rel="stylesheet" href="src/style.css">
+    <script src="src/script.js" defer></script>
+</head>
+<body class="pagina-tarefas">
+    <main class="painel-tarefas">
+        <header class="cabecalho-pagina">
+            <p class="sobretitulo">Organize seu dia</p>
+            <h1>Lista de tarefas</h1>
+            <p>Um passo de cada vez. Registre suas tarefas e acompanhe o andamento.</p>
+            <a class="link-pagina" href="cadastro.html">Voltar para entrar ou criar cadastro</a>
+        </header>
+
+        <div class="conteudo-tarefas">
+            <form id="form-tarefa" class="formulario-tarefa" onsubmit="salvarTarefa(event)">
+                <h2 class="titulo-secao">Nova tarefa</h2>
+                <label class="rotulo-campo" for="tarefa">Título</label>
+                <input class="campo-tarefa" type="text" id="tarefa" placeholder="Ex.: Preparar apresentação" required>
+
+                <label class="rotulo-campo" for="descricao">Descrição</label>
+                <textarea class="campo-tarefa campo-descricao" id="descricao" placeholder="O que precisa ser feito?" required></textarea>
+
+                <label class="rotulo-campo" for="prazo">Prazo</label>
+                <input class="campo-tarefa" type="date" id="prazo" required>
+
+                <label class="rotulo-campo" for="status">Status</label>
+                <select class="campo-tarefa" id="status" disabled>
+                    <option value="PENDENTE">Não feita</option>
+                    <option value="EM_ANDAMENTO">Em andamento</option>
+                    <option value="CONCLUIDA">Concluída</option>
+                </select>
+
+                <div class="acoes-formulario">
+                    <button class="botao-tarefa botao-principal" type="submit">Adicionar</button>
+                    <button class="botao-tarefa botao-secundario" type="button" id="cancelar-edicao" onclick="terminarEdicao()" hidden>Cancelar edição</button>
+                    <button class="botao-tarefa botao-perigo" type="button" id="remover-tarefa" onclick="removerTarefa()" disabled>Excluir selecionada</button>
+                    <button class="botao-tarefa botao-secundario" type="button" id="editar-tarefa" onclick="editarTarefa()" disabled>Editar selecionada</button>
+                </div>
+            </form>
+
+            <section class="painel-lista" aria-labelledby="titulo-lista">
+                <header class="cabecalho-lista">
+                    <div>
+                        <p class="sobretitulo">Seu planejamento</p>
+                        <h2 class="titulo-secao" id="titulo-lista">Tarefas</h2>
+                    </div>
+                    <p class="instrucao-lista">Selecione uma tarefa para editar ou excluir.</p>
+                </header>
+                <ul id="lista-tarefas" class="lista-tarefas" aria-label="Lista de tarefas"></ul>
+            </section>
+        </div>
+    </main>
+</body>
+</html>

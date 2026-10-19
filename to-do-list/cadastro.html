@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acesso | Lista de tarefas</title>
+    <link rel="stylesheet" href="src/style.css">
+    <script src="src/login.js" defer></script>
+</head>
+<body class="pagina-tarefas">
+    <main class="painel-tarefas">
+        <header class="cabecalho-pagina">
+            <p class="sobretitulo">Organize seu dia</p>
+            <h1>Lista de tarefas</h1>
+            <p>Entre para acompanhar suas tarefas ou crie seu cadastro.</p>
+        </header>
+
+        <div class="conteudo-tarefas">
+            <form id="form-login" class="formulario-tarefa" onsubmit="return validarLogin(event)">
+                <h2 class="titulo-secao">Entrar</h2>
+                <label class="rotulo-campo" for="login-email">E-mail</label>
+                <input class="campo-tarefa" type="email" id="login-email" placeholder="Digite seu e-mail" required>
+
+                <label class="rotulo-campo" for="login-senha">Senha</label>
+                <input class="campo-tarefa" type="password" id="login-senha" name="senha" placeholder="Digite sua senha" required>
+
+                <div class="acoes-formulario">
+                    <button class="botao-tarefa botao-principal" type="submit">Entrar</button>
+                </div>
+                <p class="texto-apoio">Ainda não tem cadastro? <a href="#form-cadastro">Criar cadastro</a></p>
+            </form>
+
+            <form id="form-cadastro" class="formulario-tarefa" onsubmit="cadastrarUsuario(event)">
+                <h2 class="titulo-secao">Criar cadastro</h2>
+                <label class="rotulo-campo" for="nome">Nome completo</label>
+                <input class="campo-tarefa" type="text" id="nome" name="nome" placeholder="Digite seu nome" required>
+
+                <label class="rotulo-campo" for="cadastro-email">E-mail</label>
+                <input class="campo-tarefa" type="email" id="cadastro-email" name="email" placeholder="Digite seu e-mail" required>
+
+                <label class="rotulo-campo" for="cadastro-senha">Senha</label>
+                <input class="campo-tarefa" type="password" name="senha" id="cadastro-senha" placeholder="Crie sua senha" required>
+
+                <label class="rotulo-campo" for="curso">Curso</label>
+                <select class="campo-tarefa" name="curso" id="curso" required>
+                    <option value="">Selecione um curso</option>
+                    <option value="DS">Desenvolvimento de Sistemas</option>
+                    <option value="RC">Redes de Computadores</option>
+                    <option value="II">Informática para Internet</option>
+                </select>
+
+                <label class="rotulo-termos" for="termos">
+                    <input type="checkbox" id="termos" name="termos" required>
+                    Aceito os termos de participação
+                </label>
+
+                <div class="acoes-formulario">
+                    <button class="botao-tarefa botao-principal" type="submit">Cadastrar</button>
+                </div>
+                <p class="texto-apoio">Já tem cadastro? <a href="#form-login">Entrar</a></p>
+            </form>
+        </div>
+    </main>
+</body>
+</html>
